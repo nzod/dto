@@ -59,7 +59,7 @@ yarn add @nzod/dto
 
 ```ts
 import { z } from '@nzod/z'
-import { createZodDto } from '@nzod/dto'
+import { createNZodDto } from '@nzod/dto'
 
 const CredentialsSchema = z.schema({
   username: z.string(),
@@ -67,7 +67,7 @@ const CredentialsSchema = z.schema({
 })
 
 // class is required for using DTO as a type
-class CredentialsDto extends createZodDto(CredentialsSchema) {}
+class CredentialsDto extends createNZodDto(CredentialsSchema) {}
 ```
 
 ### Validate data using DTO
