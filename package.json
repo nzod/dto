@@ -1,8 +1,8 @@
 {
-  "name": "@js-templates/typescript-library",
+  "name": "@nzod/dto",
   "version": "0.0.0-set-by-ci",
-  "description": "Your Library Description",
-  "author": "Your Name",
+  "description": "Create DTOs from N'Zod schemas",
+  "author": "Evgeny Zakharov",
   "main": "dist/index.js",
   "exports": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -10,7 +10,7 @@
   "files": [
     "dist/*"
   ],
-  "repository": "git@github.com:js-templates/typescript-library.git",
+  "repository": "git@github.com:nzod/dto.git",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
@@ -29,6 +29,7 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "@nzod/z": "^1.0.0",
     "@rollup/plugin-typescript": "^8.3.4",
     "@types/jest": "^28.1.6",
     "esbuild": "^0.14.51",

@@ -715,6 +715,13 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
+"@nzod/z@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@nzod/z/-/z-1.0.0.tgz#e2abde619589a65b33590ea6c2602ffdac09bf5d"
+  integrity sha512-rwx8zMGKmGp7iailSeFMYRDKySx5aNt6rahDBgBIwZviHYUccQjUvSb7I7AdnQoN3aLZJKG8ZW/vbSIoaxDpaw==
+  dependencies:
+    zod "^3.17.10"
+
 "@rollup/plugin-typescript@^8.3.4":
   version "8.3.4"
   resolved "https://registry.yarnpkg.com/@rollup/plugin-typescript/-/plugin-typescript-8.3.4.tgz#45cdc0787b658b37d0362c705d8de86bc8bc040e"
@@ -4692,3 +4699,8 @@ yocto-queue@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
+
+zod@^3.17.10:
+  version "3.17.10"
+  resolved "https://registry.yarnpkg.com/zod/-/zod-3.17.10.tgz#8716a05e6869df6faaa878a44ffe3c79e615defb"
+  integrity sha512-IHXnQYQuOOOL/XgHhgl8YjNxBHi3xX0mVcHmqsvJgcxKkEczPshoWdxqyFwsARpf41E0v9U95WUROqsHHxt0UQ==

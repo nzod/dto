@@ -1,78 +1,38 @@
 <p align="center">
-  <img src="logo.svg" width="200" align="center" alt="Typescript Library Logo" style="max-width: 100%;" />
-  <h1></h1>
+  <br/>
   <p align="center">
-    ✨ Your Library Description ✨
+    ✨ Create DTOs from N'Zod schemas ✨
   </p>
 </p>
 <br/>
 <p align="center">
-  <a href="https://github.com/js-templates/typescript-library/actions?query=branch%3Amain">
-    <img src="https://github.com/js-templates/typescript-library/actions/workflows/test-and-build.yml/badge.svg?event=push&branch=main" alt="@js-templates/typescript-library CI Status" />
+  <a href="https://github.com/nzod/dto/actions?query=branch%3Amain">
+    <img src="https://github.com/nzod/dto/actions/workflows/test-and-build.yml/badge.svg?event=push&branch=main" alt="@nzod/dto CI Status" />
   </a>
   <a href="https://opensource.org/licenses/MIT" rel="nofollow">
-    <img src="https://img.shields.io/github/license/js-templates/typescript-library" alt="License">
+    <img src="https://img.shields.io/github/license/nzod/dto" alt="License">
   </a>
-  <a href="https://www.npmjs.com/package/@js-templates/typescript-library" rel="nofollow">
-    <img src="https://img.shields.io/npm/dw/@js-templates/typescript-library.svg" alt="npm">
+  <a href="https://www.npmjs.com/package/@nzod/dto" rel="nofollow">
+    <img src="https://img.shields.io/npm/dw/@nzod/dto.svg" alt="npm">
   </a>
-  <a href="https://www.npmjs.com/package/@js-templates/typescript-library" rel="nofollow">
-    <img src="https://img.shields.io/github/stars/js-templates/typescript-library" alt="stars">
+  <a href="https://www.npmjs.com/package/@nzod/dto" rel="nofollow">
+    <img src="https://img.shields.io/github/stars/nzod/dto" alt="stars">
   </a>
 </p>
-
-## Template Features
-
-- 🚀 Blazingly fast and easy installation
-- 💡 CI workflows configured for changelogs and release/prerelease cycles
-- 🧱 Perfect and easy-to-support tooling setup without any conflicts with CI environment
-- 📚 Well-documented conventions for project maintaining (commits, pull-requests, branches)
-
-## Using template
-
-### 1. Replace everything
-
-1. Replace all `@js-templates/typescript-library` entries with your library name
-2. Replace all `js-templates/typescript-library` entries with your repo path
-3. Replace all `Your Library Description` entries with your library description
-4. Replace all `Your Name` entries with your library name
-5. Update `logo.svg`
-6. Update logo's `alt`
-
-### 2. Add secrets
-
-- `NPM_TOKEN`
-- `FULL_ACCESS_GITHUB_TOKEN` if you plan to set up [the branch protection](#add-branch-protection)
-
-### 3. (optional) Set up branch protection
-
-1. Go to `Settings` > `Branches` > `Add rule`
-2. Specify `main` branch
-3. Enable the following options:
-   - Require a pull request before merging (without approvals)
-   - Require status checks to pass before merging (you need to run them at least once to appear):
-     - `test-and-build`
-     - `pr-labeler`
-   - Include administrators
-   - Allow force pushes
-4. Repeat, but using `release/*` instead of `main`
-5. [Create a new Personal Access Token](https://github.com/settings/tokens/new) with `repo` permissions
-6. Use it as a new Secret named `FULL_ACCESS_GITHUB_TOKEN`  
-   It's needed to bypass the branch protection on CI runs
-
-### 4. The last step
-
-Remove **Template Features** and **Using Template** sections from README
 
 ## Before you start
 
 The README on `main` branch may contain some unreleased changes.
 
-Go to [`release/latest`](https://github.com/js-templates/typescript-library/tree/release/latest) branch to see the actual README for the latest version from NPM.
+Go to [`release/latest`](https://github.com/nzod/dto/tree/release/latest) branch to see the actual README for the latest version from NPM.
 
 ## Navigation
 
 - [Installation](#installation)
+- [Usage](#usage)
+  - [Creating DTO from N'Zod schema](#creating-dto-from-nzod-schema)
+  - [Validate data using DTO](#validate-data-using-dto)
+  - [@nzod/nestjs](#nzodnestjs)
 - [Contrubuting](#contributing)
 - [Maintenance](#maintenance)
   - [Regular flow](#regular-flow)
@@ -84,14 +44,45 @@ Go to [`release/latest`](https://github.com/js-templates/typescript-library/tree
 NPM:
 
 ```sh
-npm install @js-templates/typescript-library
+npm install @nzod/dto
 ```
 
 Yarn:
 
 ```sh
-yarn add @js-templates/typescript-library
+yarn add @nzod/dto
 ```
+
+## Usage
+
+### Creating DTO from N'Zod schema
+
+```ts
+import { z } from '@nzod/z'
+import { createZodDto } from '@nzod/dto'
+
+const CredentialsSchema = z.schema({
+  username: z.string(),
+  password: z.string(),
+})
+
+// class is required for using DTO as a type
+class CredentialsDto extends createZodDto(CredentialsSchema) {}
+```
+
+### Validate data using DTO
+
+```ts
+// The value will be validated and parsed using CredentialsSchema
+const value = 'Something possibly invalid'
+const credentials = CredentialsDto.create(value)
+```
+
+### @nzod/nestjs
+
+The many functions from `@nzod/nestjs` accept DTOs.
+
+You can learn more on [`@nzod/nestjs` README page](https://github.com/nzod/nestjs)
 
 ## Contributing
 
